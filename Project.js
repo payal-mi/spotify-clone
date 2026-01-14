@@ -1,7 +1,7 @@
 console.log("Spotify Clone Ready");
 
 // --------------------
-// Song Library (Exact filenames in your repo)
+// Song Library: exact filenames in your GitHub repo
 // --------------------
 let songLibrary = {
     "angary": [
@@ -59,7 +59,7 @@ function secondsToMinutesSeconds(sec){
 }
 
 // --------------------
-// Load songs from songLibrary
+// Get songs from songLibrary
 // --------------------
 async function getsongs(folder){
     currFolder = "songs/" + folder;
