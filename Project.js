@@ -6,68 +6,86 @@ let currFolder = "";
 let currentIndex = 0;
 let lastVolume = 0.5;
 
-
 let songLibrary = {
-    "bits": [
-        "Chill A Thind 128 Kbps.mp3",
-        "Komiku - 01 - Intro(chosic.com).mp3",
-        "Laid Back Noor Tung 128 Kbps.mp3",
-        "Yaari Forever Gavy Varn 128 Kbps.mp3"
-    ],
-    "children": [
-        "Bachhe Man Ke Sachhe - Lata Mangeshkar Children's Day 2025.mp3",
-        "nrt-1-abcd-Song.mp3",
-        "nrt-12-rock-a-bye-baby.mp3",
-        "nrt-3-pat-a-cake.mp3",
-        "nrt-8-twinkle-twinkle-little-star.mp3"
-    ],
-    "bhakt": [
-        "Agar Main Radha Radha Gaun Payal.mp3",
-        "Haara Hoon Baba Par Tujhpe Bha.mp3",
-        "Har-Saans-Mein-Ho-Sumiran-Tera.mp3",
-        "Namami-Shamishan-Nirvan-Roopam.mp3",
-        "Radhe Radhe Barsane Wali Radha.mp3",
-        "Sankatmochan Hanuman Ashtak.mp3",
-        "Shiv Chalisa (PenduJatt.Com.Se).mp3",
-        "Shree Hanuman Chalisa.mp3",
-        "Shree Durga Chalisa 1.mp3",
-        "Toone Kaun Se Punya Kiye Radhe 3.mp3",
-        "Tujhse Preet Lagi Hai Radhe-(Mr-Jat.in).mp3",
-        "Veer Hanumana-(Mr-Jat.in).mp3"
-    ],
-    "ghost": [
-        "Amiri Ghost 128 Kbps (1).mp3",
-        "Amiri Ghost 128 Kbps.mp3",
-        "Enlightenment Ghost 128 Kbps.mp3",
-        "Feel My Love Ghost 128 Kbps.mp3",
-        "Pasand Jaskiran 128 Kbps.mp3",
-        "Poppin Ghost 128 Kbps.mp3",
-        "The Confession Ghost 128 Kbps.mp3"
-    ],
-    "diljit": [
-        "Barbaad Saiyaara 128 Kbps.mp3",
-        "Humsafar Saiyaara 128 Kbps.mp3",
-        "Saiyaara Reprise Female Saiyaara 128 Kbps.mp3",
-        "Title Track Saiyaara 128 Kbps.mp3"
-    ],
-    "love": [
-        "By Myself - The Grey Room Clark Sims.mp3",
-        "Claim To Fame - The Grey Room Clark.mp3",
-        "F16 - The Grey Room Golden Palms.mp3",
-        "On The Flip - The Grey Room.mp3",
-        "Density & Time - Copy.mp3",
-        "Soaring - The Grey Room Golden Palms - Copy.mp3",
-        "Twinkle - The Grey Room Density & Time - Copy.mp3",
-        "Windy Road Back To You - The Grey Room Golden Palms - Copy.mp3",
-        "Wooden Train Whistle - Copy.mp3"
-    ],
-    "hits": [
-        "Baatein Ye Kabhi Na (PenduJatt.Com.Se).mp3",
-        "Enna Sona (PenduJatt.Com.Se).mp3",
-        "Kyu Bewafa Ho Gaya 1.mp3",
-        "Mareez - E - Ishq (PenduJatt.Com.Se).mp3",
-        "Tere Zikr Mein - Tere Ishk Mein 2025 128KBPS.mp3"
+  "sad": {
+    cover: "songs/sad/cover.jpg",
+    songs: [
+      "Baatein Ye Kabhi Na (PenduJatt.Com.Se).mp3",
+      "Enna Sona (PenduJatt.Com.Se).mp3",
+      "Kyu Bewafa Ho Gaya 1.mp3",
+      "Mareez - E - Ishq (PenduJatt.Com.Se).mp3",
+      "Tere Zikr Mein - Tere Ishk Mein 2025 128KBPS.mp3"
     ]
+  },
+  "hits": {
+    cover: "songs/hits/cover.jpg",
+    songs: [
+      "By Myself - The Grey Room Clark Sims.mp3",
+      "Claim To Fame - The Grey Room Clark.mp3",
+      "F16 - The Grey Room Golden Palms.mp3",
+      "On The Flip - The Grey Room.mp3",
+      "Soaring - The Grey Room Golden Palms - Copy.mp3",
+      "Twinkle - The Grey Room Density & Time - Copy.mp3",
+      "Windy Road Back To You - The Grey Room Golden Palms - Copy.mp3",
+      "Wooden Train Whistle - Copy.mp3"
+    ]
+  },
+  "love": {
+    cover: "songs/love/cover.jpg",
+    songs: [
+      "Barbaad Saiyaara 128 Kbps.mp3",
+      "Humsafar Saiyaara 128 Kbps.mp3",
+      "Saiyaara Reprise Female Saiyaara 128 Kbps.mp3",
+      "Title Track Saiyaara 128 Kbps.mp3"
+    ]
+  },
+  "diljit": {
+    cover: "songs/diljit/cover.jpg",
+    songs: [
+      "Amiri Ghost 128 Kbps (1).mp3",
+      "Amiri Ghost 128 Kbps.mp3",
+      "Enlightenment Ghost 128 Kbps.mp3",
+      "Feel My Love Ghost 128 Kbps.mp3",
+      "Pasand Jaskiran 128 Kbps.mp3",
+      "Poppin Ghost 128 Kbps.mp3",
+      "The Confession Ghost 128 Kbps.mp3"
+    ]
+  },
+  "bhakti": {
+    cover: "songs/bhakti/cover.jpg",
+    songs: [
+      "Agar Main Radha Radha Gaun Payal.mp3",
+      "Haara Hoon Baba Par Tujhpe Bha.mp3",
+      "Har-Saans-Mein-Ho-Sumiran-Tera.mp3",
+      "Namami-Shamishan-Nirvan-Roopam.mp3",
+      "Radhe Radhe Barsane Wali Radha.mp3",
+      "Sankatmochan Hanuman Ashtak.mp3",
+      "Shiv Chalisa (PenduJatt.Com.Se).mp3",
+      "Shree Hanuman Chalisa.mp3",
+      "Shree Durga Chalisa 1.mp3",
+      "Toone Kaun Se Punya Kiye Radhe 3.mp3",
+      "Tujhse Preet Lagi Hai Radhe-(Mr-Jat.in).mp3",
+      "Veer Hanumana-(Mr-Jat.in).mp3"
+    ]
+  },
+  "children": {
+    cover: "songs/children/cover.jpg",
+    songs: [
+      "nrt-1-abcd-Song.mp3",
+      "nrt-12-rock-a-bye-baby.mp3",
+      "nrt-3-pat-a-cake.mp3",
+      "nrt-8-twinkle-twinkle-little-star.mp3",
+      "Komiku - 01 - Intro(chosic.com).mp3"
+    ]
+  },
+  "chill": {
+    cover: "songs/chill/cover.jpg",
+    songs: [
+      "Chill A Thind 128 Kbps.mp3",
+      "Laid Back Noor Tung 128 Kbps.mp3",
+      "Yaari Forever Gavy Varn 128 Kbps.mp3"
+    ]
+  }
 };
 
 
