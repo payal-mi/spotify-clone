@@ -1,7 +1,6 @@
 console.log("Spotify Clone Ready");
 
 
-
 let songLibrary = {
     "angary": [
         "Angry Mix Sarkar 3.mp3",
@@ -10,32 +9,32 @@ let songLibrary = {
         "Thamba Sarkar 3.mp3"
     ],
     "Bits Play": [
-        "Song1.mp3",
-        "Song2.mp3"
+        "Bits Play Song1.mp3",
+        "Bits Play Song2.mp3"
     ],
     "chid": [
-        "Song1.mp3",
-        "Song2.mp3"
+        "Chid Song1.mp3",
+        "Chid Song2.mp3"
     ],
     "diljit songs": [
-        "Song1.mp3",
-        "Song2.mp3"
+        "Diljit Song1.mp3",
+        "Diljit Song2.mp3"
     ],
     "Love song": [
-        "Song1.mp3",
-        "Song2.mp3"
+        "Love Song1.mp3",
+        "Love Song2.mp3"
     ],
     "ncs": [
         "NCS Song1.mp3",
         "NCS Song2.mp3"
     ],
     "sad song": [
-        "Song1.mp3",
-        "Song2.mp3"
+        "Sad Song1.mp3",
+        "Sad Song2.mp3"
     ],
     "Super Songs": [
-        "Song1.mp3",
-        "Song2.mp3"
+        "Super Song1.mp3",
+        "Super Song2.mp3"
     ]
 };
 
@@ -57,10 +56,12 @@ function secondsToMinutesSeconds(sec){
 }
 
 
+
 async function getsongs(folder){
     currFolder = "songs/" + folder;
     return songLibrary[folder] || [];
 }
+
 
 function playMusic(track, pause=false){
     currentIndex = songs.indexOf(track);
@@ -180,4 +181,3 @@ async function main(){
 }
 
 main();
-
