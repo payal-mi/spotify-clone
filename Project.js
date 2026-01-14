@@ -1,5 +1,44 @@
 console.log("Spotify Clone Ready");
 
+
+
+let songLibrary = {
+    "angary": [
+        "Angry Mix Sarkar 3.mp3",
+        "Sam Dham Sarkar 3.mp3",
+        "Sarkar Trance Sarkar.mp3",
+        "Thamba Sarkar 3.mp3"
+    ],
+    "Bits Play": [
+        "Song1.mp3",
+        "Song2.mp3"
+    ],
+    "chid": [
+        "Song1.mp3",
+        "Song2.mp3"
+    ],
+    "diljit songs": [
+        "Song1.mp3",
+        "Song2.mp3"
+    ],
+    "Love song": [
+        "Song1.mp3",
+        "Song2.mp3"
+    ],
+    "ncs": [
+        "NCS Song1.mp3",
+        "NCS Song2.mp3"
+    ],
+    "sad song": [
+        "Song1.mp3",
+        "Song2.mp3"
+    ],
+    "Super Songs": [
+        "Song1.mp3",
+        "Song2.mp3"
+    ]
+};
+
 let currentSong = new Audio();
 let songs = [];
 let currFolder = "";
@@ -20,20 +59,8 @@ function secondsToMinutesSeconds(sec){
 
 async function getsongs(folder){
     currFolder = "songs/" + folder;
-    let res = await fetch(currFolder + "/");
-    let html = await res.text();
-    let div = document.createElement("div");
-    div.innerHTML = html;
-    let links = div.getElementsByTagName("a");
-
-    let arr = [];
-    for(let a of links){
-        let text = a.textContent.trim();
-        if(text.toLowerCase().endsWith(".mp3")) arr.push(text);
-    }
-    return arr;
+    return songLibrary[folder] || [];
 }
-
 
 function playMusic(track, pause=false){
     currentIndex = songs.indexOf(track);
@@ -54,17 +81,9 @@ function playMusic(track, pause=false){
 
 
 async function displayAlbums(){
-    let res = await fetch("songs/");
-    let html = await res.text();
-    let div = document.createElement("div");
-    div.innerHTML = html;
-    let anchors = div.getElementsByTagName("a");
     let cardContainer = document.querySelector(".cardContainer");
-
-    for(let a of anchors){
-        let folder = a.textContent.trim();
-        if(!folder || folder.endsWith(".mp3") || folder.endsWith(".json") || folder=="../") continue;
-
+    cardContainer.innerHTML = "";
+    for(let folder in songLibrary){
         let info = { title: folder, description: "" };
         try { info = await (await fetch(`songs/${folder}/info.json`)).json(); } catch{}
 
@@ -82,6 +101,7 @@ async function displayAlbums(){
     }
 }
 
+
 function renderSongs(){
     let ul = document.querySelector(".songlist ul");
     ul.innerHTML = "";
@@ -97,7 +117,7 @@ function renderSongs(){
 
 async function main(){
     await displayAlbums();
-    songs = await getsongs("ncs");
+    songs = await getsongs("angary"); // default folder
     renderSongs();
     playMusic(songs[0], true);
 
@@ -105,7 +125,7 @@ async function main(){
     next.onclick = ()=> playMusic(songs[(++currentIndex)%songs.length]);
     previous.onclick = ()=> playMusic(songs[(--currentIndex+songs.length)%songs.length]);
 
-    currentSong.ontimeupdate = ()=>{
+    currentSong.ontimeupdate = ()=> {
         if(!currentSong.duration) return;
         document.querySelector(".songtime").innerText =
             `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`;
@@ -160,3 +180,4 @@ async function main(){
 }
 
 main();
+
